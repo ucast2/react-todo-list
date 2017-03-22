@@ -3,8 +3,10 @@ var path = require('path');
 
 var app = express();
 
+// serving up static files from 'dist' folder
 app.use(express.static('./dist'));
 
+// send index.html when at path '/'
 app.use('/', function (req, res) {
     res.sendFile(path.resolve('client/index.html'));
 });
