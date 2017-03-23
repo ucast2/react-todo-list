@@ -1,10 +1,16 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
+import TextInput from "./TextInput"
 
 class App extends Component
 {
   render()
   {
-    return <div>This is definitely a React App now!</div>
+    return ( // 'class' is 'className' in React
+      <div>
+        <h1>This is the App Component</h1>
+        <TextInput/>
+      </div>
+    )
   }
 }
 
