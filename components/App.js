@@ -1,5 +1,6 @@
 import React, { Component } from "react"
-import TextInput from "./TextInput"
+import TodoInput from "./TodoInput"
+import TodoList from "./TodoList";
 
 class App extends Component
 {
@@ -7,8 +8,9 @@ class App extends Component
   {
     return ( // 'class' is 'className' in React
       <div>
-        <h1>This is the App Component</h1>
-        <TextInput/>
+        <h1>Todo List</h1>
+        <TodoInput/>
+        <TodoList/>
       </div>
     )
   }
