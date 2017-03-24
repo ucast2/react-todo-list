@@ -1,7 +1,7 @@
-export default actions =
+let actions =
 {
   // this is an action creator
-  addTodo(text)
+  addTodo: function(text)
   {
     return {
       type: 'ADD_TODO',
@@ -10,5 +10,7 @@ export default actions =
   }
 }
 
+export default actions;
+
 // create action and pass to dispatch()
-store.dispatch(addTodo('some text'));
+// store.dispatch(addTodo('some text'));

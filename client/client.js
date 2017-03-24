@@ -12,13 +12,12 @@ let initialState = {
   }]
 }
 
+// Create store w/ initialState
 let store = configureStore(initialState);
 
-// configure and create out store
-// createStore(reducers, initialState) // []
-
+// Provider: component that allows Users to
+// connect certain components to the store
 render(
-
   <Provider store={store}>
     <App />
   </Provider>,

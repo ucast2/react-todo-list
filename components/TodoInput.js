@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import actions from "../redux/actions";
 
 class TodoInput extends Component
 {
@@ -20,6 +21,15 @@ class TodoInput extends Component
     })
   }
 
+  handleSubmit(event)
+  {
+    // stops the default action of an element from happening
+    event.preventDefault();
+    // call dispatch, which takes an action: 'addTodo'
+    // the action takes the text of the todo ---V
+    this.props.dispatch(actions.addTodo(this.state.inputText));
+  }
+
   render()
   {
     return (                              // v­ bind(this)
@@ -30,7 +40,7 @@ class TodoInput extends Component
                 value={this.state.inputText}
                 onChange={this.handleChange.bind(this)}
               />
-              <button>Submit</button>
+              <button onClick={this.handleSubmit.bind(this)}>Submit</button>
             </div>
     ) // TextDisplay will have this.props.text, which will be equal to inputText
   }

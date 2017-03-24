@@ -9,15 +9,16 @@ function getId(state)
 
 // reducers take in the current state and an action
 // return new state
-export default function reducer(state, action)
+let reducer = function(state, action)
 {
   switch (action.type)
   {
     case 'ADD_TODO':
+      console.log("running ADD_TODO case");
       // create new object: '{}'
       // include all data from current state: 'state'
       // modify todos object
-      Object.assign({}, state, {
+      return Object.assign({}, state, {
         // create new todos object
         // add a new todo: '{}'
         // append other todos to new todos object: '...state.todos'
@@ -31,3 +32,5 @@ export default function reducer(state, action)
       return state;
   }
 }
+
+export default reducer;

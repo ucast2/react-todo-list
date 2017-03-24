@@ -4,7 +4,17 @@ class TodoList extends Component
 {
   render()
   {
-    return (<div>This is the todo list</div>)
+    return (
+      <ul>
+        {
+          this.props.todos.map((todo) => {
+            // React requires a unique key in order
+            // to keep track of multiple elements
+            return <li key={todo.id}>{todo.text}</li>
+          })
+        }
+      </ul>
+    )
   }
 }
 
