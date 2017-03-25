@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import actions from "../redux/actions";
 
 class TodoInput extends Component
 {
@@ -27,7 +26,7 @@ class TodoInput extends Component
     event.preventDefault();
     // call dispatch, which takes an action: 'addTodo'
     // the action takes the text of the todo ---V
-    this.props.dispatch(actions.addTodo(this.state.inputText));
+    this.props.addTodo(this.state.inputText);
   }
 
   render()

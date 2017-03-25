@@ -2,6 +2,8 @@ import React, { Component } from "react"
 import TodoInput from "./TodoInput"
 import TodoList from "./TodoList";
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import actions from "../redux/actions";
 
 class App extends Component
 {
@@ -10,8 +12,8 @@ class App extends Component
     return ( // 'class' is 'className' in React
       <div>
         <h1>Todo List</h1>
-        <TodoInput dispatch={this.props.dispatch}/>
-        <TodoList dispatch={this.props.dispatch} todos={this.props.todos}/>
+        <TodoInput addTodo={this.props.actions.addTodo}/>
+        <TodoList actions={this.props.actions} todos={this.props.todos}/>
       </div>
     )
   }
@@ -24,8 +26,19 @@ function mapStateToProps(state)
   return state;
 }
 
+// Don't have to pass dispatcher down
+// just pass actions wrapped w/ dispatcher
+function mapDispatchToProps(dispatch)
+{
+  return {
+    // wrap actions w/ dispatcher
+    actions: bindActionCreators(actions, dispatch)
+  }
+}
+
 // Export connected App Component
 // that is getting state passed in as props
-export default connect(mapStateToProps)(App);
+// State passed in to first --v  Dispatch passed in -v
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 // connect() also gives access to 'this.props.dispatch'
 // which we are passing to TodoList
