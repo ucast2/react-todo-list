@@ -28,6 +28,22 @@ let reducer = function(state, action)
           id: getId(state)
         }, ...state.todos]
       })
+    case 'COMPLETE_TODO':
+      return Object.assign({}, state, {
+        todos: state.todos.map((todo) => {
+          return todo.id === action.id ? // the correct todo
+            // return a new object which is the same todo + the complete property
+            // or ':' just the same todo
+            Object.assign({}, todo, {completed: !todo.completed}) : todo
+        })
+      })
+    case 'DELETE_TODO':
+      return Object.assign({}, state, {
+        todos: state.todos.filter((todo) => {
+          // return true for all except target todo
+          return todo.id !== action.id
+        })
+      })
     default:  // no change in state
       return state;
   }
