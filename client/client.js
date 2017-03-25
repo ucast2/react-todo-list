@@ -9,7 +9,11 @@ let initialState = {
     id: 0,
     completed: false,
     text: 'Initial todo for demo purposes'
-  }]
+  }],
+  user: {
+    username: 'Kurt',
+    id: 13
+  }
 }
 
 // Create store w/ initialState
