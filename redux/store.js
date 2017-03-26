@@ -1,5 +1,5 @@
 import { applyMiddleware, compose, createStore } from "redux";
-import reducer from "./reducer";
+import rootReducer from "./reducers"; // default index.js
 import logger from "redux-logger";
 
 // add middleware
@@ -8,7 +8,7 @@ let finalCreateStore = compose(
 )(createStore)
 
 // if initialState not passed in default used ­­­­­­­­­­­v
-export default function configureStore(initialState = {todos: []})
+export default function configureStore(initialState = {todos: [], user: {} })
 {
-  return finalCreateStore(reducer, initialState);
+  return finalCreateStore(rootReducer, initialState);
 }
