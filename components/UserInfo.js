@@ -5,7 +5,17 @@ class UserInfo extends Component
 
   handleNewId()
   {
-    this.props.createNewUserId();
+    this.props.actions.createNewUserId();
+  }
+
+  handleNewIdIfOdd()
+  {
+    this.props.actions.createNewUserIdIfOdd();
+  }
+
+  handleNewIdAsync()
+  {
+    this.props.actions.createNewUserIdAsync();
   }
 
   render()
@@ -15,6 +25,8 @@ class UserInfo extends Component
         <div>username: {this.props.user.username}</div>
         <div>id: {this.props.user.id}</div>
         <button onClick={this.handleNewId.bind(this)}>Update with random Id</button>
+        <button onClick={this.handleNewIdIfOdd.bind(this)}>Update only if odd</button>
+        <button onClick={this.handleNewIdAsync.bind(this)}>Update Async</button>
       </li>
     )
   }

@@ -13,7 +13,7 @@ class App extends Component
     return ( // 'class' is 'className' in React
       <div>
         <h1>Todo List</h1>
-        <UserInfo user={this.props.user} createNewUserId={this.props.actions.createNewUserId}/>
+        <UserInfo user={this.props.user} actions={this.props.actions}/>
         <TodoInput addTodo={this.props.actions.addTodo}/>
         <TodoList actions={this.props.actions} todos={this.props.todos}/>
       </div>

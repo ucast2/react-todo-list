@@ -1,10 +1,11 @@
 import { applyMiddleware, compose, createStore } from "redux";
 import rootReducer from "./reducers"; // default index.js
 import logger from "redux-logger";
+import thunk from "redux-thunk"; // added to list of middleware for async code
 
 // add middleware
 let finalCreateStore = compose(
-  applyMiddleware(logger) // changed 'logger()' to 'logger'
+  applyMiddleware(thunk, logger) // changed 'logger()' to 'logger'
 )(createStore)
 
 // if initialState not passed in default used ­­­­­­­­­­­v
